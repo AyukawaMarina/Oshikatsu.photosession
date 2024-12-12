@@ -1,0 +1,287 @@
+<!DOCTYPE html> 
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>推し活撮影会</title>
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    .hidden { display: none; }
+    .talent-section { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .talent-card {
+      background: #fff8fa;
+      border: 2px solid #ffdce5;
+      border-radius: 10px;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+    }
+    .talent-card p {
+      text-align: left;
+      white-space: nowrap;
+      margin: 5px 0;
+    }
+    .talent-photo {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .talent-card button {
+      display: block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #d97b94;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .talent-card button:hover {
+      background: #f9c6d5;
+      color: #555;
+      transform: scale(1.05);
+    }
+
+    /* 利用規約ボタン */
+    .terms-toggle {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .terms-toggle a {
+      display: inline-block;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #ffdce5, #f9c6d5);
+      color: #555;
+      border: 2px solid #ffdce5;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .terms-toggle a:hover {
+      background: linear-gradient(135deg, #f9c6d5, #d97b94);
+      color: #fff;
+      transform: scale(1.1);
+      text-decoration: none;
+    }
+    .terms-section {
+      max-height: 500px; /* 最大高さを設定 */
+      overflow-y: auto; /* スクロール可能に */
+      padding: 20px;
+      background: #fff8fa;
+      border: 2px solid #ffdce5;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      line-height: 1.5;
+    }
+    .terms-section h2 {
+      font-size: 1.8em;
+      color: #d97b94;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .terms-section p, .terms-section ul {
+      margin-bottom: 10px;
+      font-size: 0.9em; /* フォントサイズを小さめに */
+    }
+    .terms-section ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    /* スライドダウン風アニメーション */
+    .slide-up {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+    }
+    .slide-down {
+      max-height: 2000px; /* 十分大きな値を適当設定 */
+      opacity: 1;
+    }
+
+    .iframe-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+    iframe {
+      width: 100%;
+      max-width: 640px;
+      height: 1147px;
+      border: none;
+    }
+
+    .twitter-link {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .twitter-link a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #1DA1F2;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .twitter-link a:hover {
+      background: #0d8ae3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>推し活撮影会</h1>
+    <p>やしろじゅり。＆鮎川まりな主催撮影会</p>
+    <div class="twitter-link">
+      <a href="https://twitter.com/oshikatsu_photo" target="_blank">公式X(旧Twitter)はこちら</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- タレント一覧 -->
+    <section class="talent-section">
+      <div class="talent-card">
+        <img src="S__5611753.jpg" alt="やしろじゅり。" class="talent-photo">
+        <h2>やしろじゅり。</h2>
+        <p>身長: 160cm / 3サイズ: 97-63-97</p>
+        <p>出身: 滋賀県</p>
+        <p>好きなこと: 歌/アニメ</p>
+        <p>ポイント: ふわふわな声</p>
+        <p>
+          <a href="https://twitter.com/yashirojuri_" target="_blank">X(旧Twitter)</a> | 
+          <a href="https://instagram.com/yashirojuri_" target="_blank">Instagram</a>
+        </p>
+        <button onclick="showGoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSe0EQ3yDJiN6sOsHQqtXrPR-m1CB1MjXgLUJcQPTc8ITgXBrw/viewform')">予約する</button>
+      </div>
+
+      <div class="talent-card">
+        <img src="S__5611664.jpg" alt="鮎川まりな" class="talent-photo">
+        <h2>鮎川まりな</h2>
+        <p>身長: 168cm / 3サイズ: 92-62-97</p>
+        <p>出身: 群馬県</p>
+        <p>好きなこと: ゲーム</p>
+        <p>ポイント: ギャップ萌え</p>
+        <p>
+          <a href="https://twitter.com/marina_osakana" target="_blank">X(旧Twitter)</a> | 
+          <a href="https://instagram.com/marina_osakana" target="_blank">Instagram</a>
+        </p>
+        <button onclick="showGoogleForm('https://docs.google.com/forms/d/e/1FAIpQLSdErvx31BrBpgq6sHeGnV93CYPlUVUSEWmfQQlPn5hHFpHrwQ/viewform')">予約する</button>
+      </div>
+    </section>
+
+    <!-- 利用規約ボタンと利用規約 -->
+    <div class="terms-toggle">
+      <a onclick="toggleTerms()">利用規約を見る</a>
+    </div>
+
+    <section id="terms-section" class="terms-section hidden slide-up">
+      <h2>《利用規約》</h2>
+
+      <p><strong>【お支払いについて】</strong></p>
+      <ul>
+        <li>参加費は当日の受付にて撮影時間前にお支払いください。</li>
+        <li>お支払い方法は現金のみとなっております。クレジットカードや電子マネーはご使用頂けません。※なるべくお釣りの出ないようご協力をお願いいたします。レシート、領収書発行は撮影会会場では出来かねます。ご希望の方はメールにて送付させて頂きます。</li>
+
+      </ul>
+
+      <p><strong>【撮影について】</strong></p>
+      <ul>
+        <li>ご予約いただいたモデル以外を撮影することは固くお断りしております</li>
+        <li>モデルが嫌がるアングルや、パーツのみの撮影は部位を問わず禁止です。</li>
+        <li>モデルへの出待ち行為、休憩中に話しかけるなどの迷惑行為があった場合は、次回からのご参加をお断りすることがございます。</li>
+        <li>モデルへの過度な接近接触、ポーズの強要、セクハラ発言、誹謗中傷、個人的なお誘い等の迷惑行為は禁止です。（次回からご参加をお断りさせていただく場合がございます。）</li>
+        <li>事務所関係者及び、同業者の参加はお断りさせていただきま</li>
+        <li>お手洗いは基本的にモデル専用となります。(スタジオによっては、ご用意がある場合もございます。)</li>
+        <li>ご自身で出したゴミはお持ち帰りください</li>
+        <li>モデルや他のご参加者様、近隣の迷惑にならないよう、ご注意ください。</li>
+        <li>飲酒後のご参加はご遠慮ください。</li>
+        <li>飲備品を破損された場合には、実費にて弁償していただきます。丁重な扱いを宜しくお願い申し上げます。</li>
+        <li>撮影機材、所持品、貴重品など、ご自身の手荷物は自己管理をお願い致します。盗難、紛失、損傷された場合、当撮影会では責任を負い兼ねますのでご了承ください。</li>
+        <li>衣装や小道具など撮影に関する打ち合わせは、ご購入いただいた撮影時間内にモデルと行ってください。</li>
+        <li>チェキ撮影やサインタイムもご購入いただいた撮影時間に含まれます。</li>
+        <li>スマートフォンや、チェキ、インスタントカメラによる撮影行為は原則禁止とし、有料の2ショットチェキのみ撮影可能となります。(※スタッフが撮影致します。)（モデルによっては可能な場合があります。都度お問い合わせください。）</li>
+        <li>撮影は静止画のみとし、動画撮影は原則禁止と致します。(モデルによっては可能な場合がありますが、無断での動画撮影を発見した場合は罰金30万円、記録媒体の没収をさせて頂きます。)</li>
+        <li>スタッフの指示には必ず従ってください。ルールを守っていただけない場合は、即刻退場して頂き、参加費の返却もいたしません。※次回からのご参加をお断りさせていただく場合がございます。</li>
+      </ul>
+
+      <p><strong>【プレゼントについて】</strong></p>
+      <ul>
+        <li>モデルへのプレゼントをお持ちいただいた際は、必ずモデル本人ではなくスタッフにお渡しください。(中身を確認させて頂く場合がございます。)</li>
+        <li>お持ち込みいただいたプレゼントを、スタッフがモデルに渡せないと判断した場合は、その場で破棄、またはお持ち帰り頂きます</li>
+        <li>全てのプレゼントは如何なる場合も未開封、未使用の物に限らせて頂きます。持ち込み衣装、小道具を使用しての撮影を希望する場合はそれらはモデルへのプレゼントとし,</li>
+        <li>新品、未開封、未使用のものに限らせていただきます。また、モデルによっては着用できない衣装もございますのでご了承ください。</li>
+        <li>飲食物のプレゼントにつきましては、生もの、開封済み、密閉されてない飲食物は禁止とします。</li>
+      </ul>
+
+      <p><strong>【中止、キャンセルについて】</strong></p>
+      <ul>
+        <li>体調不良等、やむを得ない事情により、モデルの変更や中止、内容変更がある場合がございます。※中止になった場合の交通費保証や代替撮影会などは致しかねます。予めご了承ください。</li>
+        <li>撮影会の変更や中止等があった際は、ご予約者様ご本人へ電話、メール等にて直接ご連絡させて頂きます。</li>
+        <li>お客様の個人情報（電話番号／メールアドレス／住所等）はお客様へのご連絡やサービスの案内に限って使用するもので、</li>
+        <li>撮影会参加費はいかなる場合においても減額、割引は致しかねます。遅刻などのないようご協力をお願いいたします。</li>
+        <li>予約のキャンセルに関しては、お問い合わせの公式LINEよりご連絡ください。※キャンセルに際しては、キャンセル料を頂く場合がございます。</li>
+        <li>キャンセル料が発生する期間はイベントにより異なる場合がございます。原則各イベント、10日前〜3日前のキャンセルに関してはご予約されたイベントの料金の50%、2日前〜当日に関しましては100%のキャンセル料を頂きます。※キャンセル料のお支払いはイベント開催日より1週間以内に指定の口座にお振込ください。お支払いがない場合、法的処置としまして内容証明と債務承認並びに債務弁済契約書をお送りさせていただきます。</li>
+
+      </ul>
+
+      <p><strong>【撮影画像について】</strong></p>
+      <ul>
+        <li>スタッフ及びモデル本人、所属事務所はお客様の撮影データを確認させて頂く場合がございます。予めご了承ください。</li>
+        <li>撮影された写真、画像の肖像権はモデル本人、及び所属事務所に帰属致します。許可を受けた場所以外での発表は固くお断りしておりますので、ご了承ください。</li>
+        <li>撮影された写真の商用利用、雑誌投稿、販売、有料コンテンツ内での発表は絶対にご遠慮ください。コンテスト等で掲載される場合は事前にモデル、運営責任者、所属事務所に了承を得てください。また、写真の内容によっては事後であってもモデル本人や所属事務所からNGが出る場合もございます。無断でNG画像を公開をした場合については肖像権侵害等として法的処置をとらせて頂く場合もございます。</li>
+</ul>
+
+      <p>2025年 推し活撮影会</p>
+    </section>
+
+    <!-- iframeで直接Googleフォームを埋め込み（初期は非表示） -->
+    <section id="iframe-section" class="iframe-section hidden">
+      <h2>撮影会予約フォーム</h2>
+      <p>以下のフォームに必要事項を入力してください。</p>
+      <iframe 
+        src="" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0">
+        読み込んでいます…
+      </iframe>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2024 推し活撮影会 All Rights Reserved</p>
+  </footer>
+
+  <script>
+    function showGoogleForm(formUrl) {
+      const iframe = document.querySelector('#iframe-section iframe');
+      iframe.src = formUrl;
+      document.getElementById('iframe-section').classList.remove('hidden');
+      document.getElementById('iframe-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleTerms() {
+      const terms = document.getElementById('terms-section');
+      if (terms.classList.contains('hidden')) {
+        terms.classList.remove('hidden');
+        terms.classList.remove('slide-up');
+        terms.classList.add('slide-down');
+      } else {
+        terms.classList.remove('slide-down');
+        terms.classList.add('slide-up');
+        setTimeout(() => {
+          terms.classList.add('hidden');
+        }, 300); // アニメーション後に非表示クラス付与
+      }
+    }
+  </script>
+</body>
+</html>
